@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef  } from '@angular/core';
 
-
+import { Plan } from "../core/model/plan";
+import {MatTable, MatTableDataSource, MatTableModule} from '@angular/material/table';
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
@@ -8,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('planesTable', {static: false}) table: MatTable<Plan>;
+
+  @Input() planes: Plan[] = []
+  selectPeriodo: String
+
+  displayedColumns: string[] = [
+    'nombre',
+    'plan',
+    'periodos',
+    'actions'
+  ];
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+    
   }
+
+  
 
 }

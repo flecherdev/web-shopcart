@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PlanService } from "../core/services/plan/plan.service";
 
+import { Plan } from "../core/model/plan";
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  planes: Plan[] = []
+
+  constructor(
+    private planService: PlanService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchAll()
   }
 
+  fetchAll() {
+    this.planService.getAllPlans().subscribe(planes => {
+      console.log(planes['response']['planes'])
+      this.planes = planes['response']['planes']
+    })
+  }
 }
