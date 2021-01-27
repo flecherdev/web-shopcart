@@ -1,0 +1,28 @@
+
+nav > a{
+    padding: 5px;
+    text-decoration: none;
+}
+
+nav > a.active{
+    background: rgb(58, 111, 209);
+}
+
+.header-row {
+    width: 100%;
+}
+
+.search-form {
+    min-width: 150px;
+    max-width: 250px;
+    width: 100%;
+}
+  
+.input-full-width {
+    font-size: medium;
+    width: 100%;
+}
+
+td {
+    padding-right: 8px;
+}  
