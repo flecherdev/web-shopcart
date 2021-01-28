@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTable, MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 // import { MatTableDataSource, MatTable } from '@angular/material';
@@ -37,7 +38,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonModule,
     MatTableModule,
     HttpClientModule,
-    MatRadioModule
+    MatRadioModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef  } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, Output, EventEmitter  } from '@angular/core';
 
 import { Plan } from "../core/model/plan";
 import {MatTable, MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -12,6 +12,7 @@ export class ListItemComponent implements OnInit {
   @ViewChild('planesTable', {static: false}) table: MatTable<Plan>;
 
   @Input() planes: Plan[] = []
+  @Output() planClicket: EventEmitter<any> = new EventEmitter();
   selectPeriodo: String
 
   displayedColumns: string[] = [
@@ -28,6 +29,13 @@ export class ListItemComponent implements OnInit {
     
   }
 
+  addProduct(plan){
+    const alCarrito = {
+      plan: plan.plan,
+      periodo: this.selectPeriodo
+    }
+    this.planClicket.emit(alCarrito);
+  }
   
 
 }

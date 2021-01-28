@@ -1,8 +1,11 @@
-<app-header></app-header>
+<app-header
+    [count]="count"
+></app-header>
 
 <div class="container">
     <!-- <router-outlet></router-outlet> -->
     <app-list-item
         [planes]="planes"
+        (planClicket)="clickPlan($event)" 
     ></app-list-item>
 </div>

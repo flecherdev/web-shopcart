@@ -10,6 +10,7 @@ import { Plan } from "../core/model/plan";
 export class LayoutComponent implements OnInit {
 
   planes: Plan[] = []
+  count: number = 0
 
   constructor(
     private planService: PlanService
@@ -24,5 +25,11 @@ export class LayoutComponent implements OnInit {
       console.log(planes['response']['planes'])
       this.planes = planes['response']['planes']
     })
+  }
+  
+  clickPlan(plan) {
+    console.log('sumar al carrito')
+    this.count++
+    console.log(plan);
   }
 }
