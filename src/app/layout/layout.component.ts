@@ -11,6 +11,7 @@ export class LayoutComponent implements OnInit {
 
   planes: Plan[] = []
   count: number = 0
+  plan:any = {}
 
   constructor(
     private planService: PlanService
@@ -26,10 +27,19 @@ export class LayoutComponent implements OnInit {
       this.planes = planes['response']['planes']
     })
   }
-  
+
   clickPlan(plan) {
     console.log('sumar al carrito')
+    this.plan = plan
     this.count++
     console.log(plan);
   }
+
+  clickCart(ev) {
+    console.log('se click cart')
+    this.planService.createPlanCard(this.plan).subscribe(addPlan => {
+      console.log(addPlan)
+    })
+  }
+
 }

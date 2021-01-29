@@ -8,7 +8,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() count: number
-  @Output() productClicket: EventEmitter<any> = new EventEmitter();
+  @Output() cartClicket: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +18,6 @@ export class HeaderComponent implements OnInit {
 
   addCart() {
     console.log('agregar producto');
-    this.productClicket.emit(this.count);
+    this.cartClicket.emit();
   }
 }

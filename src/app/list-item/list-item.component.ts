@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild, ElementRef, Output, EventEmitter  } from '@angular/core';
-
 import { Plan } from "../core/model/plan";
 import {MatTable, MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { PlanService } from '../core/services/plan/plan.service';
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
@@ -13,7 +13,7 @@ export class ListItemComponent implements OnInit {
 
   @Input() planes: Plan[] = []
   @Output() planClicket: EventEmitter<any> = new EventEmitter();
-  selectPeriodo: String
+  selectPeriodo: {}
 
   displayedColumns: string[] = [
     'nombre',
@@ -23,10 +23,11 @@ export class ListItemComponent implements OnInit {
   ];
 
   constructor(
+    private planService: PlanService
   ) { }
 
   ngOnInit(): void {
-    
+    this.selectPeriodo = ''
   }
 
   addProduct(plan){
@@ -35,7 +36,22 @@ export class ListItemComponent implements OnInit {
       periodo: this.selectPeriodo
     }
     this.planClicket.emit(alCarrito);
+    this.selectPeriodo = ''
+    this.fetchAll()
   }
+
+  clickPeriodo(periodo){
+    console.log(periodo)
+    this.selectPeriodo = periodo.periodo
+  }
+
+  fetchAll() {
+    this.planService.getAllPlans().subscribe(planes => {
+      console.log(planes['response']['planes'])
+      this.planes = planes['response']['planes']
+    })
+  }
+
   
 
 }

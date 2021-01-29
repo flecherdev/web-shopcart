@@ -1,5 +1,7 @@
 <app-header
     [count]="count"
+    (cartClicket)="clickCart($event)"
+    (refreshClicket)="fetchAll($event)"
 ></app-header>
 
 <div class="container">
