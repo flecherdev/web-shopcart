@@ -15,10 +15,17 @@ export class PlanService {
     return this.http.get(`http://c1300044.ferozo.com/getListado.php`);
   }
 
-  createPlanCard(data: object) {
-    console.log('estoy en create plan cart')
-    console.log(data)
-    return this.http.get(`http://c1300044.ferozo.com/agregarItem.php?plan=${data.plan}&periodo=${data.periodo}`);
+  createPlanCard(plan: string, periodo:number) {
+    return this.http.get(`http://c1300044.ferozo.com/agregarItem.php?plan=${plan}&periodo=${periodo}`);
+  }
+
+  getAllCart() {
+    return this.http.get(`http://c1300044.ferozo.com/getListadoCarrito.php`);
+  }
+
+  deleteCartItem(id: number) {
+    // por una politica de cors no permite usar el metodo delete
+    return this.http.delete(`http://c1300044.ferozo.com/removerItem.php?id_producto=${id}`);
   }
 
 }

@@ -9,15 +9,19 @@ export class HeaderComponent implements OnInit {
 
   @Input() count: number
   @Output() cartClicket: EventEmitter<any> = new EventEmitter();
+  @Output() searchClicket: EventEmitter<any> = new EventEmitter();
+  searchText: string
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
   addCart() {
-    console.log('agregar producto');
     this.cartClicket.emit();
+  }
+
+  search() {
+    this.searchClicket.emit(this.searchText)
   }
 }

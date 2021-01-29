@@ -23,23 +23,33 @@ export class LayoutComponent implements OnInit {
 
   fetchAll() {
     this.planService.getAllPlans().subscribe(planes => {
-      console.log(planes['response']['planes'])
       this.planes = planes['response']['planes']
     })
   }
 
   clickPlan(plan) {
-    console.log('sumar al carrito')
     this.plan = plan
     this.count++
-    console.log(plan);
+    console.log(plan)
   }
 
   clickCart(ev) {
-    console.log('se click cart')
-    this.planService.createPlanCard(this.plan).subscribe(addPlan => {
+    this.planService.createPlanCard(this.plan.plan, this.plan.periodo).subscribe(addPlan => {
       console.log(addPlan)
     })
+  }
+
+  clickSearch(text) {
+    console.log('buscando...')
+    let platSearch = []
+    if(text){
+      const plan = this.planes.find( plan => plan.nombre.search(/text/i) )
+      platSearch.push(plan)
+      this.planes = platSearch
+    } else {
+      this.fetchAll()
+    }
+    
   }
 
 }

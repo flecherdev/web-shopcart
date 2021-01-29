@@ -41,13 +41,11 @@ export class ListItemComponent implements OnInit {
   }
 
   clickPeriodo(periodo){
-    console.log(periodo)
     this.selectPeriodo = periodo.periodo
   }
 
   fetchAll() {
     this.planService.getAllPlans().subscribe(planes => {
-      console.log(planes['response']['planes'])
       this.planes = planes['response']['planes']
     })
   }

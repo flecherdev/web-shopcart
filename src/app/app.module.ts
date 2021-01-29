@@ -14,10 +14,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ListItemComponent } from './list-item/list-item.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import {MatTable, MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatBadgeModule} from '@angular/material/badge';
-
+import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatBadgeModule } from '@angular/material/badge';
+import { CartComponent } from './cart/cart.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FormsModule } from '@angular/forms';
 
 // import { MatTableDataSource, MatTable } from '@angular/material';
 
@@ -26,7 +28,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     AppComponent,
     HeaderComponent,
     LayoutComponent,
-    ListItemComponent
+    ListItemComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatTableModule,
     HttpClientModule,
     MatRadioModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatProgressBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

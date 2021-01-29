@@ -6,16 +6,16 @@
           <td>
             <mat-form-field class="input-full-width">
               <mat-label>Item a buscar</mat-label>
-              <input matInput />
+              <input [(ngModel)]="searchText" matInput />
             </mat-form-field>
           </td>
           <td>
-            <button mat-raised-button color="accent">Buscar</button>
+            <button mat-raised-button (click)="search()" color="accent">Buscar</button>
           </td>
         </tr>
       </table>
 
-      <a mat-raised-button matBadge="{{ count }}" (click)="addCart()" matBadgeColor="warn">
+      <a mat-raised-button matBadge="{{ count }}" (click)="addCart()" routerLink="/cart" matBadgeColor="warn">
         <mat-icon>shopping_cart</mat-icon>
         Carrito
       </a>
